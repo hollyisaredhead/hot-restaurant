@@ -60,7 +60,7 @@
 
                         </form>
                         <div class="text-left">
-                            <button type="submit" class="btn btn-primary btn-md" id="add-btn">Submit</button>
+                            <button type="submit" class="btn btn-primary btn-md" id="reserveBtn">Submit</button>
                         </div>
                     </div>
                 </div>
@@ -76,6 +76,25 @@
         <a href="/api/tables">API Tables</a> |
         <a href="/api/waitlist">API Wait list</a>
     </div>
+
+    <script type="text/javascript">
+        $("#reserveBtn").on("click", function (event) {
+            event.preventDefault();
+            var newReserve = {
+                name: $("#name").val().trim(),
+                phone: $("#phoneNumber").val().trim(),
+                email: $("#email").val().trim(),
+                uniqueID: $("#uniqueID").val().trim(),
+            };
+            $.post("/api/tables", newReserve)
+                .then(function (data) {
+                    console.log("reserve.html", data);
+                    alert("Yay! You are officially booked!");
+                });
+        });
+
+    </script>
+
 </body>
 
 </html>
