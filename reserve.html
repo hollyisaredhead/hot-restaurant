@@ -7,10 +7,75 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Reserve</title>
 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://use.fontawesome.com/releases/v5.12.0/js/all.js" data-auto-replace-svg></script>
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
 </head>
 
 <body>
 
+    <div class="container">
+        <div class="jumbotron text-center">
+            <h1 class="text-center"><span class="fa fa-fire"></span> Hot Restaurant</h1>
+            <hr>
+            <h3 class="text-center">Make your reservation</h3>
+            <br>
+            <a href="/"><button class="btn btn-primary btn-lg"><span i class="far fa-list-alt"></span> View
+                    Tables</button></a>
+            <a href="/"><button class="btn btn-light btn-lg"><span class="fas fa-home"></span></button></a>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+
+                    <div class="card-header">
+                        Table Reservation
+                    </div>
+
+                    <div class="card-body">
+                        <form method="POST" role="form">
+
+                            <div class="form-group">
+                                <label for="name"><strong>Name</strong></label>
+                                <input type="text" class="form-control" id="name">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="phoneNumber"><strong>Phone Number</strong></label>
+                                <input type="text" class="form-control" id="phoneNumber">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email"><strong>Email</strong></label>
+                                <input type="text" class="form-control" id="email">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="uniqueID"><strong>Unique ID</strong></label>
+                                <input type="text" class="form-control" id="uniqueID">
+                            </div>
+
+                        </form>
+                        <div class="text-left">
+                            <button type="submit" class="btn btn-primary btn-md" id="add-btn">Submit</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    </div>
+    <footer class="footer"></footer>
+    <br>
+    <div class="container">
+        <a href="/api/tables">API Tables</a> |
+        <a href="/api/waitlist">API Wait list</a>
+    </div>
 </body>
 
 </html>
