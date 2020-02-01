@@ -50,15 +50,6 @@ app.post("/api/tables", (req, res) => {
     res.json(newReservation);
 });
 
-//Post to waitlist
-// app.post("/api/waitlist", (req, res) => {
-//     var newWaitlist = req.body;
-
-//     waitlist.push(newWaitlist);
-
-//     res.json(newWaitlist);
-// })
-
 //Starts the server
 app.listen(PORT, () => {
     console.log("App listening on port " + PORT);
