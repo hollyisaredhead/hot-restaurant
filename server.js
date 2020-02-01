@@ -9,7 +9,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 //Variables to store reservations and waitlist
-var reservations = [];
+var tables = [];
 var waitlist = [];
 
 //Routes
@@ -27,8 +27,8 @@ app.get("/tables", (req, res) => {
 
 
 //Displays reservations
-app.get("/api/reservations", (req, res) => {
-    return res.json(reservations);
+app.get("/api/tables", (req, res) => {
+    return res.json(tables);
 });
 
 //Displays waitlist
@@ -37,10 +37,10 @@ app.get("/api/waitlist", (req, res) => {
 });
 
 //Post reservations
-app.post("/api/reservations", (req, res) => {
+app.post("/api/tables", (req, res) => {
     var newReservation = req.body;
 
-    reservations.push(newReservation);
+    tables.push(newReservation);
 
     res.json(newReservation);
 })
