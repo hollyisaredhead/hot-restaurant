@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery.js"></script>
     <title>Hot Restaurant</title>
 </head>
 
@@ -22,7 +23,7 @@
 
                 <a class="btn btn-lg btn-danger" href="/reserve" role="button"><i class="fa fa-credit-card"></i> Make
                     Reservation</a>
-                <a class="btn btn-lg btn btn-light" href="/home" role="button"><i class="fa fa-home"></i> </a>
+                <a class="btn btn-lg btn btn-light" href="/" role="button"><i class="fa fa-home"></i> </a>
             </div>
         </div>
         <div class="row">
@@ -31,7 +32,7 @@
                 <div class="panel-heading">
                     <h4 class="panel-title">Current Reservations</h4>
                 </div>
-                <div class="panel-body" id="tableSection">
+                <p id="tableSection">
 
                 </div>
             </div>
@@ -41,7 +42,7 @@
                 <div class="panel-heading">
                     <h4 class="panel-title">Wait list</h4>
                 </div>
-                <div class="panel-body" id="waitlistSection">
+                <p id="waitlistSection">
 
                 </div>
             </div>
@@ -52,27 +53,31 @@
             <a href="/api/tables">API Tables</a> |
             <a href="/api/waitlist">API Wait list</a>
         </div>
+    </div>
 
-        <script src = "text/javascript">
-       
-       function runTable(){
+   <script>
 
+        function runTableQuery(){
+            $.get("/api/tables", function (data) {
+                cosole.log(data);
 
-    $.get("api/tables", function(data){
-            for (var i = 0; i < data.length; i++)
-            {
-                var tableSection = $(`<div class = row>
+            for (var i = 0; i < data.length; i++) {
+
+                var tableSection = $(`<div class = "row">
                     <div class = "col-sm-12">
                         Name: ${data[i].name}
                     `);
-            $("#tableSection").append(tableSection);              
+                $("#tableSection").append(tableSection);
             }
-    
-           
+
         })
-        }
-        
-        </script>
+
+        runTableQuery();
+
+    }
+    
+
+    </script>
 </body>
 
 </html>

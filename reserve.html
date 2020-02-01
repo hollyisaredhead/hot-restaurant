@@ -23,7 +23,8 @@
             <hr class="my-4">
             <h3 class="text-center">Make your reservation</h3>
             <br>
-            <a href="/tables"><button class="btn btn-primary btn-lg"><span i class="far fa-list-alt"></span> View
+            <a href="/tables"><button class="btn btn-primary btn-lg" id="viewTables"><span i
+                        class="far fa-list-alt"></span> View
                     Tables</button></a>
             <a href="/"><button class="btn btn-light btn-lg"><span class="fas fa-home"></span></button></a>
         </div>
@@ -77,7 +78,7 @@
         <a href="/api/waitlist">API Wait list</a>
     </div>
 
-    <script type="text/javascript">
+    <script>
         $("#reserveBtn").on("click", function (event) {
             event.preventDefault();
             var newReserve = {
@@ -93,6 +94,22 @@
                 });
         });
 
+        // $("#viewTables").on("click", function (event) {
+        //     event.preventDefault();
+        //     //console.log("viewTables");
+        //     $.get("/api/tables", function (data) {
+
+        //         console.log(data);
+        //         for (var i = 0; i < data.length; i++) {
+        //             var tableSection = $(`<div class = "row">
+        //     <div class = "col-sm-12">
+        //         Name: ${data[i].name}
+        //     // `);
+        //             $("#tableSection").append(tableSection);
+        //         }
+
+        // //     });
+        // })
     </script>
 
 </body>
