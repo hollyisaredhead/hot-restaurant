@@ -40,19 +40,24 @@ app.get("/api/waitlist", (req, res) => {
 app.post("/api/tables", (req, res) => {
     var newReservation = req.body;
 
-    tables.push(newReservation);
+    if (tables.length < 5) {
+        tables.push(newReservation);
+    }
+    else {
+        waitlist.push(newReservation);
+    }
 
     res.json(newReservation);
-})
+});
 
 //Post to waitlist
-app.post("/api/waitlist", (req, res) => {
-    var newWaitlist = req.body;
+// app.post("/api/waitlist", (req, res) => {
+//     var newWaitlist = req.body;
 
-    waitlist.push(newWaitlist);
+//     waitlist.push(newWaitlist);
 
-    res.json(newWaitlist);
-})
+//     res.json(newWaitlist);
+// })
 
 //Starts the server
 app.listen(PORT, () => {
