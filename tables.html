@@ -57,15 +57,19 @@
        
        function runTable(){
 
-        $.get("api/tables", function(data){
-    
-               $("#name").text(data.name);
-               $("#phoneNumber").text(data.phoneNumber);
-               $("#email").text(data.email);
-               $("#uniqueID").text(data.uniqueID);
-    
-        })
 
+    $.get("api/tables", function(data){
+            for (var i = 0; i < data.length; i++)
+            {
+                var tableSection = $(`<div class = row>
+                    <div class = "col-sm-12">
+                        Name: ${data[i].name}
+                    `);
+            $("#tableSection").append(tableSection);              
+            }
+    
+           
+        })
         }
         
         </script>
