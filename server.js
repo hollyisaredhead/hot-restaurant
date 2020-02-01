@@ -40,6 +40,18 @@ app.get("/api/waitlist", (req, res) => {
 app.post("/api/tables", (req, res) => {
     var newReservation = req.body;
 
+    var name = newReservation.name;
+
+    for (let i = 0; i < tables.length; i++) {
+        if (name === tables[i].name)
+            return res.json(true);
+    }
+
+    for (let j = 0; j < waitlist.length; j++) {
+        if (name === waitlist[j].name)
+            return res.json(true);
+    }
+
     if (tables.length < 5) {
         tables.push(newReservation);
     }
