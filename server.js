@@ -42,16 +42,19 @@ app.post("/api/tables", (req, res) => {
 
     var name = newReservation.name;
 
+    //If current name is already in table array, don't add the user again
     for (let i = 0; i < tables.length; i++) {
         if (name === tables[i].name)
             return res.json(true);
     }
 
+    //If current name is already in waitlist array, don't add the user again
     for (let j = 0; j < waitlist.length; j++) {
         if (name === waitlist[j].name)
             return res.json(true);
     }
 
+    //If current name is not in table or waitlist array, add the user to the corresponding array
     if (tables.length < 5) {
         tables.push(newReservation);
     }
